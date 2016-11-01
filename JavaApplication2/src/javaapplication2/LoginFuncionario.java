@@ -179,8 +179,12 @@ public class LoginFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        if(){
         new Menu().setVisible(true);
-        new LoginFuncionario().setVisible(false);
+        new LoginFuncionario().setVisible(false);}
+        else{
+        
+        }
     }//GEN-LAST:event_okActionPerformed
 
     /**
