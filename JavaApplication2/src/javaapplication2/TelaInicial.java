@@ -123,10 +123,12 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed
        new CadastroFuncionario().setVisible(true);
+        new TelaInicial().setVisible(false);
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
          new LoginFuncionario().setVisible(true);
+         new TelaInicial().setVisible(false);
     }//GEN-LAST:event_loginActionPerformed
 
     /**
