@@ -18,7 +18,12 @@ import java.util.ArrayList;
     String  nome, dataSaida, dataEntrada, telefone, endereco, data;
     P matricula;
     int saida, dia, mes, ano, alerta;
-
+    public CadastroClientes(){
+        
+    }
+    public void setMatricula(P matricula){
+        this.matricula=matricula;
+    }
     public CadastroClientes( P matricula) {
         if ( matricula!=null) {
             this.matricula = matricula;

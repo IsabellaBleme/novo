@@ -121,10 +121,10 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField3" min="-2" pref="181" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" pref="181" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldCodigo" min="-2" pref="181" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAutor" min="-2" pref="181" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="jTextField4" min="-2" pref="181" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldQuantidade" min="-2" pref="181" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                           <Component id="jButtonOKAY" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -133,7 +133,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jToggleButton1" min="-2" pref="93" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNome" min="-2" pref="181" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -146,23 +146,23 @@
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jToggleButton1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNome" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jToggleButton2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAutor" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jToggleButton3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCodigo" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jToggleButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
@@ -238,19 +238,25 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton3ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleButton4">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Quantidade:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="jTextFieldNome">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="jTextFieldAutor">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="jTextFieldCodigo">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodigoActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="jTextFieldQuantidade">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonOKAY">
                   <Properties>
@@ -505,14 +511,14 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jTextField9" min="-2" pref="181" max="-2" attributes="0"/>
-                                      <Component id="jTextField8" min="-2" pref="181" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldMatricula1" min="-2" pref="181" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldCodigo2" min="-2" pref="181" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jToggleButton5" min="-2" pref="93" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextField5" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNome1" min="-2" pref="181" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="161" max="32767" attributes="0"/>
@@ -534,17 +540,17 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNome1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jToggleButton7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCodigo2" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldMatricula1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jToggleButton8" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -616,11 +622,11 @@
                     <Property name="text" type="java.lang.String" value="Matricula: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
+                <Component class="javax.swing.JTextField" name="jTextFieldNome1">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField8">
+                <Component class="javax.swing.JTextField" name="jTextFieldCodigo2">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField9">
+                <Component class="javax.swing.JTextField" name="jTextFieldMatricula1">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonOK">
                   <Properties>
