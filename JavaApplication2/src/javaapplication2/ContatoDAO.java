@@ -5,6 +5,8 @@
  */
 package javaapplication2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author aluno
