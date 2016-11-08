@@ -14,6 +14,7 @@ class CadastroFuncionarios {
    int cont=320;
    public void getCadastroFuncionarios (){
       matricula="0000";
+      
       senha="0000";
    }
 
