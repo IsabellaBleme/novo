@@ -5,6 +5,12 @@
  */
 package javaapplication2;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -44,7 +50,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro Funcionário", 0, 0, new java.awt.Font("Calibri", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
@@ -93,6 +99,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jButton4.setText("Senha:");
 
         jButton5.setText("Telefone:");
+
+        jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeActionPerformed(evt);
+            }
+        });
 
         jTextFieldMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,9 +207,38 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMatriculaActionPerformed
 
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
-         new LoginFuncionario().setVisible(true);
+         //ArrayList<CadastroFuncionarios> func = new ArrayList<>();
+        
+         ManipuladorArquivo manipulador = new ManipuladorArquivo();
+         CadastroFuncionarios  cf =new CadastroFuncionarios ();
+         cf.setNome(jTextFieldNome.getText());
+         cf.setMatricula(jTextFieldMatricula.getText());
+         cf.setSenha(jTextFieldSenha.getText());
+         cf.setTelefone(jTextFieldTelefone.getText());
+         JOptionPane.showMessageDialog(null, "Sua matricula é!"+cf.getMatricula());
+         //func.add(cf);
+         
+        try {
+            manipulador.escrever(cf.getNome()+" ;"+cf.getMatricula()+" ;"+cf.getSenha()+" ;"+cf.getTelefone()+"\n");
+        } catch (IOException ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+         
+        
+        
+        
+        
+        
+        
+        new LoginFuncionario().setVisible(true);
          new CadastroFuncionario().setVisible(false);
     }//GEN-LAST:event_jButtonOKActionPerformed
+
+    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     /**
      * @param args the command line arguments

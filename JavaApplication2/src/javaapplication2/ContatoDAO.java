@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ContatoDAO {
 
     public void salvarContato(CadastroClientes c) throws DAOException {
-        ManipuladorArquivo m = new ManipuladorArquivo("C:\\Users\\Aluno\\Desktop\\pratica25.txt");
+        ManipuladorArquivo m = new ManipuladorArquivo();
         try {
             m.escrever(c.getNomeC() + ";");
             m.escrever(c.getMatricula() + ";");
@@ -28,7 +28,7 @@ public class ContatoDAO {
     }
     
     public void salvarLivro(Livro l) throws DAOException {
-        ManipuladorArquivo m = new ManipuladorArquivo("C:\\Users\\Aluno\\Desktop\\pratica26.txt");
+        ManipuladorArquivo m = new ManipuladorArquivo();
         try {
             m.escrever(l.getNome() + ";");
             m.escrever(l.getAutor() + ";");
@@ -43,7 +43,7 @@ public class ContatoDAO {
     public ArrayList<Livro> getLivros() throws DAOException {
         ArrayList<Livro> livros = new ArrayList<>();
         try {
-            ManipuladorArquivo m = new ManipuladorArquivo("C:\\Users\\Aluno\\Desktop\\pratica26.txt");
+            ManipuladorArquivo m = new ManipuladorArquivo();
             ArrayList<String> linhas = m.lerParaArrayList();
             
             for (int i = 0; i < linhas.size(); i++) {
@@ -73,7 +73,7 @@ public class ContatoDAO {
     public ArrayList<CadastroClientes> getContatos() throws DAOException {
         ArrayList<CadastroClientes> contatos = new ArrayList<>();
         try {
-            ManipuladorArquivo m = new ManipuladorArquivo("C:\\Users\\Aluno\\Desktop\\pratica25.txt");
+            ManipuladorArquivo m = new ManipuladorArquivo();
             ArrayList<String> linhas = m.lerParaArrayList();
             
             for (int i = 0; i < linhas.size(); i++) {

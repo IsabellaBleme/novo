@@ -62,7 +62,7 @@ public class Menu extends javax.swing.JFrame {
         txtMatricula = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
-        jButton13 = new javax.swing.JButton();
+        jButtonOKay = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
@@ -111,7 +111,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
+            .addGap(0, 568, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +182,7 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,10 +278,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setText("OK");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        jButtonOKay.setText("OK");
+        jButtonOKay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                jButtonOKayActionPerformed(evt);
             }
         });
 
@@ -318,7 +318,7 @@ public class Menu extends javax.swing.JFrame {
                                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGap(318, 318, 318)
-                                .addComponent(jButton13)))))
+                                .addComponent(jButtonOKay)))))
                 .addGap(89, 89, 89))
         );
         jPanel12Layout.setVerticalGroup(
@@ -348,7 +348,7 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(jButton12)
                             .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(8, 8, 8)
-                .addComponent(jButton13)
+                .addComponent(jButtonOKay)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -585,43 +585,40 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton12ActionPerformed
 
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
-      CadastroClientes cc = new CadastroClientes(txtMatricula);
-        cc.setNome(txtNome.getText());
-        cc.setEndereco(txtEndereco.getText());
-        cc.setTelefone(txtTelefone.getText());
-        ContatoDAO dao = new ContatoDAO();
+     
         try{
-           dao.salvarContato(cc);
+             ManipuladorArquivo arquivo1 =new ManipuladorArquivo();
+           if(arquivo1.lerLivro(jTextFieldNome1, jTextFieldCodigo2, jTextFieldMatricula1)==true){}
            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
-        }catch( DAOException ex){
-            System.out.println("Cadastro não realizado!");
-            JOptionPane.showMessageDialog(null, "Cadastro não realizado!");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"Cadastro não realizado com sucesso!");
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }        //
     }//GEN-LAST:event_jButtonOKActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void jButtonOKayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKayActionPerformed
         //add your handling code here:
       
         
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_jButtonOKayActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void jButtonOKAYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKAYActionPerformed
-         ManipuladorArquivo manipulador = new ManipuladorArquivo("");
+         ManipuladorArquivo manipulador = new ManipuladorArquivo();
          
          
          ArrayList<Livro> livros= new ArrayList <Livro>();
          Livro livro = new Livro();
          livro.setCodigo(jTextFieldCodigo.getText());
-         livro.setCodigo(jTextFieldAutor.getText());
-         livro.setCodigo(jTextFieldNome.getText());
-         livro.setCodigo(jTextFieldQuantidade.getText());
+         livro.setAutor(jTextFieldAutor.getText());
+         livro.setNome(jTextFieldNome.getText());
+         livro.setQuantidade(Integer.parseInt((jTextFieldQuantidade.getText())));
          livros.add(livro);
         try { 
-            manipulador.escrever(livro.getNome()+ " "+livro.getAutor()+" "+livro.getCodigo()+" "+livro.getQuantidade());
+            manipulador.escrever(livro.getNome()+ " ;"+livro.getAutor()+" ;"+livro.getCodigo()+" ;"+livro.getQuantidade()+"\n");
                                  
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
@@ -679,12 +676,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonOK;
     private javax.swing.JButton jButtonOKAY;
+    private javax.swing.JButton jButtonOKay;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

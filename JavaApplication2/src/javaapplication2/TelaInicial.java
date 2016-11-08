@@ -10,7 +10,6 @@ package javaapplication2;
  * @author aluno
  */
 public class TelaInicial extends javax.swing.JFrame {
-
     /**
      * Creates new form TelaInicial
      */
@@ -123,12 +122,13 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed
        new CadastroFuncionario().setVisible(true);
-        new TelaInicial().setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-         new LoginFuncionario().setVisible(true);
-         new TelaInicial().setVisible(false);
+
+        new LoginFuncionario().setVisible(true);
+         this.setVisible(false);
     }//GEN-LAST:event_loginActionPerformed
 
     /**

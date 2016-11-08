@@ -5,11 +5,17 @@
  */
 package javaapplication2;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
  */
-public class LoginFuncionario extends javax.swing.JFrame {
+public class LoginFuncionario extends JFrame {
 
     /**
      * Creates new form LoginFuncionario
@@ -36,8 +42,8 @@ public class LoginFuncionario extends javax.swing.JFrame {
         codigo = new javax.swing.JToggleButton();
         senha = new javax.swing.JToggleButton();
         jTextFieldCODIGO = new javax.swing.JTextField();
-        jTextFieldSENHA = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
+        jTextFieldSENHA = new javax.swing.JPasswordField();
 
         jButton2.setText("Cadastrar Funcionário");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +116,12 @@ public class LoginFuncionario extends javax.swing.JFrame {
 
         senha.setText("Senha");
 
+        jTextFieldCODIGO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCODIGOActionPerformed(evt);
+            }
+        });
+
         ok.setText("OK");
         ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,15 +135,15 @@ public class LoginFuncionario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
+                .addGap(129, 129, 129)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(codigo))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldCODIGO, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldCODIGO, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                             .addComponent(jTextFieldSENHA))
                         .addGap(136, 136, 136))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -147,8 +159,8 @@ public class LoginFuncionario extends javax.swing.JFrame {
                     .addComponent(codigo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldSENHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senha))
+                    .addComponent(senha)
+                    .addComponent(jTextFieldSENHA, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(ok)
                 .addGap(18, 18, 18)
@@ -179,13 +191,33 @@ public class LoginFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        if(){
-        new Menu().setVisible(true);
-        new LoginFuncionario().setVisible(false);}
-        else{
+        {
+            ManipuladorArquivo arquivo = new ManipuladorArquivo();
+            CadastroFuncionarios c = new CadastroFuncionarios();         
+         
+                try {
+                    if (arquivo.ler(jTextFieldCODIGO, jTextFieldSENHA) == true) {
+                        JOptionPane.showMessageDialog(null, "Cadastro realizado!");
+                        this.setVisible(false);
+                        new Menu().setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Codigo ou senha incorretos!");
+                        new TelaInicial().setVisible(true);
+                    }
+                   
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            //else{
         
-        }
+        //}
     }//GEN-LAST:event_okActionPerformed
+
+    private void jTextFieldCODIGOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCODIGOActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCODIGOActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,7 +263,7 @@ public class LoginFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextFieldCODIGO;
-    private javax.swing.JTextField jTextFieldSENHA;
+    private javax.swing.JPasswordField jTextFieldSENHA;
     private javax.swing.JButton ok;
     private javax.swing.JToggleButton senha;
     // End of variables declaration//GEN-END:variables
